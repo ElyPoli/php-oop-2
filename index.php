@@ -1,9 +1,56 @@
 <?php
-require_once __DIR__ . '/../models/category/Cat.php';
-require_once __DIR__ . '/../models/category/Dog.php';
-require_once __DIR__ . '/../models/product/Food.php';
-require_once __DIR__ . '/../models/product/Game.php';
-require_once __DIR__ . '/../models/product/PetBed.php';
+// Includo i file db con i dati delle istanze
+include_once __DIR__ . '/db/foods_db.php';
+include_once __DIR__ . '/db/game_db.php';
+include_once __DIR__ . '/db/pet_bed_db.php';
+include_once __DIR__ . '/db/pet_bed_db.php';
+include_once __DIR__ . '/models/category/Cat.php';
+include_once __DIR__ . '/models/category/Dog.php';
+
+// Creo le istanze della classe "food"
+$foodsList = array_map(function ($singleFood) {
+    $food = new Food($singleFood['expiration'], $singleFood['name'], $singleFood['img'], $singleFood['category'],);
+    $food->setTypology($singleFood['typology']);
+    $food->setAllergensy($singleFood['allergens']);
+    $food->setPrice($singleFood['price']);
+
+    return $food;
+}, $rawFoodsList);
+
+// Creo le istanze della classe "game"
+$gamesList = array_map(function ($singleGame) {
+    $game = new Game($singleGame['material'], $singleGame['noise'], $singleGame['name'], $singleGame['img'], $singleGame['category'],);
+    $game->setColor($singleGame['color']);
+    $game->setResistant($singleGame['resistant']);
+    $game->setPrice($singleGame['price']);
+
+    return $game;
+}, $rawGamesList);
+
+// Creo le istanze della classe "pet bed"
+$petBedsList = array_map(function ($singlePetBed) {
+    $petBed = new PetBed($singlePetBed['material'], $singlePetBed['easyCleaning'], $singlePetBed['name'], $singlePetBed['img'], $singlePetBed['category'],);
+    $petBed->setColor($singlePetBed['color']);
+    $petBed->setComfort($singlePetBed['comfort']);
+    $petBed->setShape($singlePetBed['shape']);
+    $petBed->setPrice($singlePetBed['price']);
+
+    return $petBed;
+}, $rawPetBedsList);
+
+
+// "<span>" .
+// if ($prod->getCategory() === 'cat') {
+//   $pet = new Cat();
+// echo $pet->getImg()
+// } else if ($prod->getCategory() ==='dog') {
+//   $pet = new Dog();
+// echo $pet->getImg()
+// };
+// . "</span>"
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +75,196 @@ require_once __DIR__ . '/../models/product/PetBed.php';
 </head>
 
 <body>
+    <main class="bg-primary">
+        <div class="container pt-5 pb-5">
+            <h1 class="text-center text-uppercase text-white pt-2">Animal products</h1>
+            <!-- Sezione cibo -->
+            <div class="pt-3">
+                <h3 class="text-white fst-italic">Foods</h3>
+                <div class="row row-cols-3 row-cols-md-4 justify-content-center gy-4">
+                    <?php foreach ($foodsList as $food) { ?>
+                        <div class="col">
+                            <div class="card">
+                                <?php
+                                echo '<img class="card-img-top my-card-img" src="' . $food->getImg() . '" alt="' . $food->getName() . '">';
+                                ?>
+                                <div class="card-body">
+                                    <?php
+                                    echo '<h5 class="card-title">' . $food->getName() . '</h5>';
+                                    ?>
+                                    <ul class="list-unstyled">
+                                        <?php
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Typology</span>:
+                                            " . $food->getTypology() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Allergens</span>: 
+                                            " . $food->getAllergens() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Food for</span>: ";
+                                                if ($food->getCategory() === 'cat') {
+                                                    $pet = new Cat();
+                                                    echo $pet->getImg();
+                                                } else if ($food->getCategory() === 'dog') {
+                                                    $pet = new Dog();
+                                                    echo $pet->getImg();
+                                                }
+                                        echo "</li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Expiration</span>: 
+                                            " . $food->getExpiration() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Price</span>: 
+                                            " . $food->getPrice() . "
+                                            €
+                                            </li>";
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <!-- Sezione giochi -->
+            <div class="pt-3">
+                <h3 class="text-white fst-italic">Games</h3>
+                <div class="row row-cols-3 row-cols-md-4 justify-content-center gy-4">
+                    <?php foreach ($gamesList as $game) { ?>
+                        <div class="col">
+                            <div class="card">
+                                <?php
+                                echo '<img class="card-img-top my-card-img" src="' . $game->getImg() . '" alt="' . $game->getName() . '">';
+                                ?>
+                                <div class="card-body">
+                                    <?php
+                                    echo '<h5 class="card-title">' . $game->getName() . '</h5>';
+                                    ?>
+                                    <ul class="list-unstyled">
+                                        <?php
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Material</span>:
+                                            " . $game->getMaterial() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Color</span>: 
+                                            " . $game->getColor() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Resistant</span>: 
+                                            " . $game->getResistant() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Noise</span>: 
+                                            " . $game->getNoise() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Food for</span>: ";
+                                                if ($game->getCategory() === 'cat') {
+                                                    $pet = new Cat();
+                                                    echo $pet->getImg();
+                                                } else if ($game->getCategory() === 'dog') {
+                                                    $pet = new Dog();
+                                                    echo $pet->getImg();
+                                                }
+                                        echo "</li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Price</span>: 
+                                            " . $game->getPrice() . "
+                                            €
+                                            </li>";
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <!-- Sezione cuccie -->
+            <div class="pt-3">
+                <h3 class="text-white fst-italic">Pet beds</h3>
+                <div class="row row-cols-3 row-cols-md-4 justify-content-center gy-4">
+                    <?php foreach ($petBedsList as $bed) { ?>
+                        <div class="col">
+                            <div class="card">
+                                <?php
+                                echo '<img class="card-img-top my-card-img" src="' . $bed->getImg() . '" alt="' . $bed->getName() . '">';
+                                ?>
+                                <div class="card-body">
+                                    <?php
+                                    echo '<h5 class="card-title">' . $bed->getName() . '</h5>';
+                                    ?>
+                                    <ul class="list-unstyled">
+                                        <?php
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Typology</span>:
+                                            " . $bed->getMaterial() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Color</span>: 
+                                            " . $bed->getColor() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Comfort</span>: 
+                                            " . $bed->getComfort() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Easy to clean</span>: 
+                                            " . $bed->getEasyCleaning() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Shape</span>: 
+                                            " . $bed->getShape() . "
+                                            </li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Food for</span>: ";
+                                                if ($bed->getCategory() === 'cat') {
+                                                    $pet = new Cat();
+                                                    echo $pet->getImg();
+                                                } else if ($bed->getCategory() === 'dog') {
+                                                    $pet = new Dog();
+                                                    echo $pet->getImg();
+                                                }
+                                        echo "</li>";
+                                        echo "<li class='card-text'>
+                                            <i class='fa-solid fa-star-of-life'></i>
+                                            <span>Price</span>: 
+                                            " . $bed->getPrice() . "
+                                            €
+                                            </li>";
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Bootstrap Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

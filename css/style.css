@@ -1,0 +1,32 @@
+:root {
+    --bs-primary: #36AE7C;
+    --bs-primary-rgb: 54, 174, 124;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card i {
+    font-size: .5rem;
+}
+
+.card span {
+    font-weight: bold;
+}
+
+.my-card-img {
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    padding-top: 1rem;
+}
+
+.card i.my-mark-card {
+    font-size: 1rem;
+}
