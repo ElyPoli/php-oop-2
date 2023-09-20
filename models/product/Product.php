@@ -2,7 +2,6 @@
 class Product
 {
   protected $name;
-  protected $description;
   protected $img;
   protected $price;
   protected $category;

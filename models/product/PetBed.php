@@ -36,7 +36,7 @@ class PetBed extends Product
     }
 
     // Set the value of $comfort
-    public function setComfortt($_comfort)
+    public function setComfort($_comfort)
     {
         $this->comfort = $_comfort;
 
@@ -76,13 +76,22 @@ class PetBed extends Product
     // Get the value of $comfort
     public function getComfort()
     {
-        return $this->comfort;
+        if ($this->comfort === true) {
+            return '<i class="fa-solid fa-check my-mark-card"></i>';
+        } else {
+            return '<i class="fa-solid fa-xmark my-mark-card"></i>';
+        }
+
     }
 
     // Get the value of $easyCleaning
     public function getEasyCleaning()
     {
-        return $this->easyCleaning;
+        if ($this->easyCleaning === true) {
+            return '<i class="fa-solid fa-check my-mark-card"></i>';
+        } else {
+            return '<i class="fa-solid fa-xmark my-mark-card"></i>';
+        }
     }
 
     // Get the value of $shape

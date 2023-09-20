@@ -68,12 +68,20 @@ class Game extends Product
     // Get the value of $resistant
     public function getResistant()
     {
-        return $this->resistant;
+        if ($this->resistant === true) {
+            return '<i class="fa-solid fa-check my-mark-card"></i>';
+        } else {
+            return '<i class="fa-solid fa-xmark my-mark-card"></i>';
+        }
     }
 
     // Get the value of $noise
     public function getNoise()
     {
-        return $this->noise;
+        if ($this->noise === true) {
+            return '<i class="fa-solid fa-check my-mark-card"></i>';
+        } else {
+            return '<i class="fa-solid fa-xmark my-mark-card"></i>';
+        }
     }
 }
