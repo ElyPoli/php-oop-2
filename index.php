@@ -159,7 +159,7 @@ $petBedsList = array_map(function ($singlePetBed) {
                                             </li>";
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
-                                            <span>Food for</span>: ";
+                                            <span>Game for</span>: ";
                                                 if ($game->getCategory() === 'cat') {
                                                     $pet = new Cat();
                                                     echo $pet->getImg();
@@ -226,7 +226,7 @@ $petBedsList = array_map(function ($singlePetBed) {
                                             </li>";
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
-                                            <span>Food for</span>: ";
+                                            <span>Pet bed for</span>: ";
                                                 if ($bed->getCategory() === 'cat') {
                                                     $pet = new Cat();
                                                     echo $pet->getImg();
