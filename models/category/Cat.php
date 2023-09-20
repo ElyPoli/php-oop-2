@@ -3,5 +3,8 @@ require_once __DIR__ . '/Category.php';
 
 class Cat extends Category
 {
-    protected static $color = "green";
+    public function __construct()
+    {
+        $this->img = '<i class="fa-solid fa-cat my-mark-card"></i>';
+    }
 }
