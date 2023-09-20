@@ -1,5 +1,9 @@
 <?php
-
+require_once __DIR__ . '/../models/category/Cat.php';
+require_once __DIR__ . '/../models/category/Dog.php';
+require_once __DIR__ . '/../models/product/Food.php';
+require_once __DIR__ . '/../models/product/Game.php';
+require_once __DIR__ . '/../models/product/PetBed.php';
 ?>
 
 <!DOCTYPE html>
