@@ -37,20 +37,6 @@ $petBedsList = array_map(function ($singlePetBed) {
 
     return $petBed;
 }, $rawPetBedsList);
-
-
-// "<span>" .
-// if ($prod->getCategory() === 'cat') {
-//   $pet = new Cat();
-// echo $pet->getImg()
-// } else if ($prod->getCategory() ==='dog') {
-//   $pet = new Dog();
-// echo $pet->getImg()
-// };
-// . "</span>"
-
-
-
 ?>
 
 <!DOCTYPE html>

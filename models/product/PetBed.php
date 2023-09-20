@@ -81,7 +81,6 @@ class PetBed extends Product
         } else {
             return '<i class="fa-solid fa-xmark my-mark-card"></i>';
         }
-
     }
 
     // Get the value of $easyCleaning

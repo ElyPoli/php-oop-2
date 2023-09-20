@@ -1,46 +1,9 @@
 <?php
 class Category
 {
-  // protected $name;
   protected $img;
 
-  // // Costruttore
-  // function __construct(string $_name, string $_img)
-  // {
-  //   $this->name = $_name;
-  //   $this->img = $_img;
-  // }
-
-  /*
-  <!--Cat or Dog icon-->
-              <span>
-                <?php if ($prod->getCategory() === "dog") {
-                  $pet = new Dogs(); ?>
-                <?php echo $pet->getIcon() ?>
-                <?php } elseif ($prod->getCategory() ==="cat") {
-                  $pet = new Cats(); ?>
-                <?php echo $pet->getIcon()?>
-                <?php } ?>
-              </span>
-              <!--end cat or dog-->
-*/
-  public function setName()
-  {
-    if ($this->img) {
-
-    }
-
-  }
-
   // -> SETTER
-
-  // // Set the value of $name
-  // public function setName($_name)
-  // {
-  //   $this->name = $_name;
-
-  //   return $this;
-  // }
 
   // Set the value of $img
   public function setImg($_img)
@@ -54,14 +17,7 @@ class Category
     return $this;
   }
 
-
   // -> GETTER
-
-  // // Get the value of $name
-  // public function getName()
-  // {
-  //   return $this->name;
-  // }
 
   // Get the value of $img
   public function getImg()
