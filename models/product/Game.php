@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/Product.php';
+require_once __DIR__ . '/../../traits/MaterialColor.php';
 
 class Game extends Product
 {
-    protected $material;
-    protected $color;
+    use MaterialColor;
     protected $resistant;
     protected $noise;
 
@@ -17,22 +17,6 @@ class Game extends Product
     }
 
     // -> SETTER
-
-    // Set the value of $material
-    public function setMaterial($_material)
-    {
-        $this->material = $_material;
-
-        return $this;
-    }
-
-    // Set the value of $color
-    public function setColor($_color)
-    {
-        $this->color = $_color;
-
-        return $this;
-    }
 
     // Set the value of $resistant
     public function setResistant($_resistant)
@@ -52,18 +36,6 @@ class Game extends Product
 
 
     // -> GETTER
-
-    // Get the value of $material
-    public function getMaterial()
-    {
-        return $this->material;
-    }
-
-    // Get the value of $color
-    public function getColor()
-    {
-        return $this->color;
-    }
 
     // Get the value of $resistant
     public function getResistant()

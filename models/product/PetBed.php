@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/Product.php';
+require_once __DIR__ . '/../../traits/MaterialColor.php';
 
 class PetBed extends Product
 {
-    protected $material;
-    protected $color;
+    use MaterialColor;
     protected $comfort;
     protected $easyCleaning;
     protected $shape;
@@ -18,22 +18,6 @@ class PetBed extends Product
     }
 
     // -> SETTER
-
-    // Set the value of $material
-    public function setMaterial($_material)
-    {
-        $this->material = $_material;
-
-        return $this;
-    }
-
-    // Set the value of $color
-    public function setColor($_color)
-    {
-        $this->color = $_color;
-
-        return $this;
-    }
 
     // Set the value of $comfort
     public function setComfort($_comfort)
@@ -60,18 +44,6 @@ class PetBed extends Product
     }
 
     // -> GETTER
-
-    // Get the value of $material
-    public function getMaterial()
-    {
-        return $this->material;
-    }
-
-    // Get the value of $color
-    public function getColor()
-    {
-        return $this->color;
-    }
 
     // Get the value of $comfort
     public function getComfort()
