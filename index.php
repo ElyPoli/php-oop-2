@@ -9,8 +9,9 @@ include_once __DIR__ . '/models/category/Dog.php';
 
 // Creo le istanze della classe "food"
 $foodsList = array_map(function ($singleFood) {
-    $food = new Food($singleFood['expiration'], $singleFood['name'], $singleFood['img'], $singleFood['category'],);
+    $food = new Food($singleFood['expiration'], $singleFood['name'], $singleFood['category'],);
     $food->setTypology($singleFood['typology']);
+    $food->setImg($singleFood['img']);
     $food->setAllergensy($singleFood['allergens']);
     $food->setPrice($singleFood['price']);
 
@@ -19,8 +20,9 @@ $foodsList = array_map(function ($singleFood) {
 
 // Creo le istanze della classe "game"
 $gamesList = array_map(function ($singleGame) {
-    $game = new Game($singleGame['material'], $singleGame['noise'], $singleGame['name'], $singleGame['img'], $singleGame['category'],);
+    $game = new Game($singleGame['material'], $singleGame['noise'], $singleGame['name'], $singleGame['category'],);
     $game->setColor($singleGame['color']);
+    $game->setImg($singleGame['img']);
     $game->setResistant($singleGame['resistant']);
     $game->setPrice($singleGame['price']);
 
@@ -29,8 +31,9 @@ $gamesList = array_map(function ($singleGame) {
 
 // Creo le istanze della classe "pet bed"
 $petBedsList = array_map(function ($singlePetBed) {
-    $petBed = new PetBed($singlePetBed['material'], $singlePetBed['easyCleaning'], $singlePetBed['name'], $singlePetBed['img'], $singlePetBed['category'],);
+    $petBed = new PetBed($singlePetBed['material'], $singlePetBed['easyCleaning'], $singlePetBed['name'], $singlePetBed['category'],);
     $petBed->setColor($singlePetBed['color']);
+    $petBed->setImg($singlePetBed['img']);
     $petBed->setComfort($singlePetBed['comfort']);
     $petBed->setShape($singlePetBed['shape']);
     $petBed->setPrice($singlePetBed['price']);

@@ -8,9 +8,9 @@ class Food extends Product
     protected $expiration;
 
     // Costruttore
-    function __construct(DateTime $_expiration, string $_name, string $_img, string $_category)
+    function __construct(DateTime $_expiration, string $_name, string $_category)
     {
-        parent::__construct($_name, $_img, $_category);
+        parent::__construct($_name, $_category);
         $this->expiration = $_expiration;
     }
 

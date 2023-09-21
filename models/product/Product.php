@@ -7,10 +7,9 @@ class Product
   protected $category;
 
   // Costruttore
-  function __construct(string $_name, string $_img, string $_category)
+  function __construct(string $_name, string $_category)
   {
     $this->name = $_name;
-    $this->img = $_img;
     $this->category = $_category;
   }
 
@@ -27,7 +26,7 @@ class Product
   // Set the value of $img
   public function setImg($_img)
   {
-    if (is_null($_img)) {
+    if (is_null($_img) || $_img === '') {
       $this->img = "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg";
     } else {
       $this->img = $_img;
