@@ -13,8 +13,8 @@ class PetBed extends Product
     function __construct(string $_material, bool $_easyCleaning, string $_name, string $_category)
     {
         parent::__construct($_name, $_category);
-        $this->material = $_material;
-        $this->easyCleaning = $_easyCleaning;
+        $this->setMaterial($_material);
+        $this->setEasyCleaning($_easyCleaning);
     }
 
     // -> SETTER

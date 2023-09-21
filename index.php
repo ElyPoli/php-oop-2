@@ -75,7 +75,12 @@ $petBedsList = array_map(function ($singlePetBed) {
                         <div class="col">
                             <div class="card">
                                 <?php
-                                echo '<img class="card-img-top my-card-img" src="' . $food->getImg() . '" alt="' . $food->getName() . '">';
+                                try {
+                                    echo '<img class="card-img-top my-card-img" src="' . $food->getImg() . '" alt="' . $food->getName() . '">';
+                                } catch (MessageException $e) {
+                                    echo '<img class="card-img-top my-card-img" src="' . $food->getImg() . '" alt="' . $food->getName() . '">';
+                                    echo '<div class="alert alert-warning" role="alert">' . 'Errore: ' . $e->getMessage() . '</div>';
+                                }
                                 ?>
                                 <div class="card-body">
                                     <?php
@@ -96,13 +101,13 @@ $petBedsList = array_map(function ($singlePetBed) {
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
                                             <span>Food for</span>: ";
-                                                if ($food->getCategory() === 'cat') {
-                                                    $pet = new Cat();
-                                                    echo $pet->getImg();
-                                                } else if ($food->getCategory() === 'dog') {
-                                                    $pet = new Dog();
-                                                    echo $pet->getImg();
-                                                }
+                                            if ($food->getCategory() === 'cat') {
+                                                $pet = new Cat();
+                                                echo $pet->getImg();
+                                            } else if ($food->getCategory() === 'dog') {
+                                                $pet = new Dog();
+                                                echo $pet->getImg();
+                                            }
                                         echo "</li>";
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
@@ -132,7 +137,12 @@ $petBedsList = array_map(function ($singlePetBed) {
                         <div class="col">
                             <div class="card">
                                 <?php
-                                echo '<img class="card-img-top my-card-img" src="' . $game->getImg() . '" alt="' . $game->getName() . '">';
+                                try {
+                                    echo '<img class="card-img-top my-card-img" src="' . $game->getImg() . '" alt="' . $game->getName() . '">';
+                                } catch (MessageException $e) {
+                                    echo '<img class="card-img-top my-card-img" src="' . $game->getImg() . '" alt="' . $game->getName() . '">';
+                                    echo '<div class="alert alert-warning" role="alert">' . 'Errore: ' . $e->getMessage() . '</div>';
+                                }
                                 ?>
                                 <div class="card-body">
                                     <?php
@@ -163,13 +173,13 @@ $petBedsList = array_map(function ($singlePetBed) {
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
                                             <span>Game for</span>: ";
-                                                if ($game->getCategory() === 'cat') {
-                                                    $pet = new Cat();
-                                                    echo $pet->getImg();
-                                                } else if ($game->getCategory() === 'dog') {
-                                                    $pet = new Dog();
-                                                    echo $pet->getImg();
-                                                }
+                                        if ($game->getCategory() === 'cat') {
+                                            $pet = new Cat();
+                                            echo $pet->getImg();
+                                        } else if ($game->getCategory() === 'dog') {
+                                            $pet = new Dog();
+                                            echo $pet->getImg();
+                                        }
                                         echo "</li>";
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
@@ -194,7 +204,12 @@ $petBedsList = array_map(function ($singlePetBed) {
                         <div class="col">
                             <div class="card">
                                 <?php
-                                echo '<img class="card-img-top my-card-img" src="' . $bed->getImg() . '" alt="' . $bed->getName() . '">';
+                                try {
+                                    echo '<img class="card-img-top my-card-img" src="' . $bed->getImg() . '" alt="' . $bed->getName() . '">';
+                                } catch (MessageException $e) {
+                                    echo '<img class="card-img-top my-card-img" src="' . $bed->getImg() . '" alt="' . $bed->getName() . '">';
+                                    echo '<div class="alert alert-warning" role="alert">' . 'Errore: ' . $e->getMessage() . '</div>';
+                                }
                                 ?>
                                 <div class="card-body">
                                     <?php
@@ -230,13 +245,13 @@ $petBedsList = array_map(function ($singlePetBed) {
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>
                                             <span>Pet bed for</span>: ";
-                                                if ($bed->getCategory() === 'cat') {
-                                                    $pet = new Cat();
-                                                    echo $pet->getImg();
-                                                } else if ($bed->getCategory() === 'dog') {
-                                                    $pet = new Dog();
-                                                    echo $pet->getImg();
-                                                }
+                                        if ($bed->getCategory() === 'cat') {
+                                            $pet = new Cat();
+                                            echo $pet->getImg();
+                                        } else if ($bed->getCategory() === 'dog') {
+                                            $pet = new Dog();
+                                            echo $pet->getImg();
+                                        }
                                         echo "</li>";
                                         echo "<li class='card-text'>
                                             <i class='fa-solid fa-star-of-life'></i>

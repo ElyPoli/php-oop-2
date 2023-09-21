@@ -30,3 +30,12 @@
 .card i.my-mark-card {
     font-size: 1rem;
 }
+
+.alert {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: .9rem;
+    font-style: italic;
+    margin-bottom: 0;
+}

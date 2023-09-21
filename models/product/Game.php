@@ -12,8 +12,8 @@ class Game extends Product
     function __construct(string $_material, bool $_noise, string $_name, string $_category)
     {
         parent::__construct($_name, $_category);
-        $this->material = $_material;
-        $this->noise = $_noise;
+        $this->setMaterial($_material);
+        $this->setNoise($_noise);
     }
 
     // -> SETTER

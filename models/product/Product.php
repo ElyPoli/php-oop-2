@@ -9,8 +9,8 @@ class Product
   // Costruttore
   function __construct(string $_name, string $_category)
   {
-    $this->name = $_name;
-    $this->category = $_category;
+    $this->setName($_name);
+    $this->setCategory($_category);
   }
 
   // -> SETTER
@@ -25,12 +25,8 @@ class Product
 
   // Set the value of $img
   public function setImg($_img)
-  {
-    if (is_null($_img) || $_img === '') {
-      $this->img = "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg";
-    } else {
-      $this->img = $_img;
-    }
+  {   
+    $this->img = $_img;
 
     return $this;
   }
@@ -50,11 +46,7 @@ class Product
   // Set the value of $category
   public function setCategory($_category)
   {
-    if ($_category === "cat" || $_category === "dog") {
-      $this->category = $_category;
-    } else {
-      $this->category = "errore";
-    }
+    $this->category = $_category;
 
     return $this;
   }
@@ -71,7 +63,12 @@ class Product
   // Get the value of $img
   public function getImg()
   {
-    return $this->img;
+    if (is_null($this->img) || $this->img === '') {
+      $this->img = "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg";
+      throw new MessageException("l'immagine non è stata caricata correttamente");
+    } else {
+      return $this->img;
+    }
   }
 
   // Get the value of $price

@@ -59,7 +59,7 @@ $rawFoodsList = [
     ],
     [
         'name' => 'Purizon',
-        'img' => 'https://shop-cdn-m.mediazs.com/bilder/di/sconto/kg/purizon/crocchette/senza/cereali/per/cani/4/400/purizon_dog_lamb_1kg_1000x1000_4.jpg',
+        'img' => '',
         'price' => 30,
         'category' => 'dog',
         'typology' => 'secco',

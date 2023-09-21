@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/Product.php';
+require_once __DIR__ . '/../../exceptions/MessageException.php';
 
 class Food extends Product
 {
@@ -11,7 +12,7 @@ class Food extends Product
     function __construct(DateTime $_expiration, string $_name, string $_category)
     {
         parent::__construct($_name, $_category);
-        $this->expiration = $_expiration;
+        $this->setExpiration($_expiration);
     }
 
     // -> SETTER
@@ -40,7 +41,6 @@ class Food extends Product
         return $this;
     }
 
-    
     // -> GETTER
 
     // Get the value of $typology
